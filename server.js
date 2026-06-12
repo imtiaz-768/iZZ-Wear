@@ -12,12 +12,23 @@ const PORT = process.env.PORT || 3000;
 const MONGODB_URI = process.env.MONGODB_URI || "mongodb://127.0.0.1:27017";
 const DB_NAME = process.env.DB_NAME || "izz_store";
 const JWT_SECRET = process.env.JWT_SECRET || "change-this-secret";
+const STATIC_DIR = require("fs").existsSync(path.join(__dirname, "public"))
+  ? path.join(__dirname, "public")
+  : __dirname;
 
 let db;
 
 app.use(cors());
 app.use(express.json({ limit: "2mb" }));
-app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static(STATIC_DIR));
+
+app.get("/", (req, res) => {
+  res.sendFile(path.join(STATIC_DIR, "index.html"));
+});
+
+app.get("/admin", (req, res) => {
+  res.sendFile(path.join(STATIC_DIR, "admin.html"));
+});
 
 const collections = {
   users: () => db.collection("users"),
