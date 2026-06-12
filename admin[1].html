@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>iZZ Admin</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <nav>
+    <a class="nav-logo" href="/">i<span>ZZ</span></a>
+    <ul class="nav-links">
+      <li><a href="/">Storefront</a></li>
+      <li><a href="#products">Products</a></li>
+      <li><a href="#orders">Orders</a></li>
+      <li><a href="#settings">Settings</a></li>
+    </ul>
+    <button class="nav-cta" id="adminLoginBtn">Admin Login</button>
+  </nav>
+
+  <main class="admin-layout">
+    <section>
+      <p class="section-label">Control Room</p>
+      <h1 class="section-title">iZZ Admin Panel</h1>
+      <p class="muted">The first registered account becomes admin. After that, only admin users can change products, inventory, settings, and order status.</p>
+    </section>
+
+    <section id="products" class="admin-grid">
+      <form id="productForm" class="admin-card">
+        <h3>Product</h3>
+        <input type="hidden" name="id" />
+        <input name="name" placeholder="Product name" required />
+        <input name="category" placeholder="Category" required />
+        <textarea name="description" placeholder="Description"></textarea>
+        <input name="imageUrl" placeholder="Image URL" />
+        <input name="badge" placeholder="Badge, e.g. New or Sale" />
+        <input name="price" type="number" min="1" placeholder="Price" required />
+        <input name="oldPrice" type="number" min="0" placeholder="Old price" />
+        <input name="stock" type="number" min="0" placeholder="Stock" required />
+        <label><input name="active" type="checkbox" checked /> Active product</label>
+        <button class="btn-primary" type="submit">Save Product</button>
+        <button class="btn-outline" type="button" id="clearProduct">Clear</button>
+        <p class="muted" id="productMessage"></p>
+      </form>
+      <div class="admin-card">
+        <h3>Catalog & Inventory</h3>
+        <div id="adminProducts" class="table-list"></div>
+      </div>
+    </section>
+
+    <section id="orders" class="admin-grid">
+      <div class="admin-card">
+        <h3>Order Management</h3>
+        <p class="muted">Update delivery status, payment status, and tracking number.</p>
+      </div>
+      <div class="admin-card">
+        <div id="adminOrders" class="table-list"></div>
+      </div>
+    </section>
+
+    <section id="settings" class="admin-grid">
+      <form id="settingsForm" class="admin-card">
+        <h3>Site Settings</h3>
+        <input name="brandName" placeholder="Brand name" />
+        <input name="heroEyebrow" placeholder="Hero eyebrow" />
+        <input name="heroTitle" placeholder="Hero title" />
+        <input name="freeDeliveryText" placeholder="Delivery badge text" />
+        <input name="facebook" placeholder="Facebook URL" />
+        <input name="instagram" placeholder="Instagram URL" />
+        <input name="tiktok" placeholder="TikTok URL" />
+        <input name="whatsapp" placeholder="WhatsApp URL" />
+        <button class="btn-primary" type="submit">Save Settings</button>
+        <p class="muted" id="settingsMessage"></p>
+      </form>
+      <form id="adminAuthForm" class="admin-card">
+        <h3>Admin Account</h3>
+        <input name="name" placeholder="Name for first signup" />
+        <input name="email" type="email" placeholder="Email" required />
+        <input name="phone" placeholder="Phone" />
+        <input name="password" type="password" placeholder="Password" required />
+        <div class="button-row">
+          <button class="btn-primary" name="mode" value="login">Login</button>
+          <button class="btn-outline" name="mode" value="register">First Signup</button>
+        </div>
+        <p class="muted" id="adminAuthMessage"></p>
+      </form>
+    </section>
+  </main>
+
+  <script src="/admin.js"></script>
+</body>
+</html>

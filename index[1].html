@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>iZZ - Wear the Difference</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <nav>
+    <a class="nav-logo" href="/">i<span>ZZ</span></a>
+    <ul class="nav-links">
+      <li><a href="#categories">Shop</a></li>
+      <li><a href="#products">New Arrivals</a></li>
+      <li><a href="#orders">Orders</a></li>
+      <li><a href="/admin.html">Admin</a></li>
+    </ul>
+    <button class="nav-cta" id="accountBtn">Login</button>
+  </nav>
+
+  <section id="hero">
+    <div class="hero-left">
+      <p class="hero-eyebrow" id="heroEyebrow">New Collection - 2026</p>
+      <h1 class="hero-title">Wear<br>the <em>Difference.</em></h1>
+      <p class="hero-sub">Premium T-shirts, shirts, pants and more, crafted for those who make a statement without saying a word.</p>
+      <div class="hero-btns">
+        <a href="#products" class="btn-primary">Shop Collection</a>
+        <a href="#categories" class="btn-outline">Browse All</a>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-pattern"></div>
+      <div class="hero-fashion-block">
+        <div class="fashion-silhouette"><span class="silhouette-text">iZZ</span></div>
+        <span class="hero-badge" id="deliveryText">Free Delivery Over Tk 1500</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="marquee-bar">
+    <div class="marquee-inner">
+      <span class="marquee-item">T-Shirts <span class="marquee-dot">*</span></span>
+      <span class="marquee-item">Formal Shirts <span class="marquee-dot">*</span></span>
+      <span class="marquee-item">Casual Pants <span class="marquee-dot">*</span></span>
+      <span class="marquee-item">Joggers <span class="marquee-dot">*</span></span>
+      <span class="marquee-item">New Arrivals <span class="marquee-dot">*</span></span>
+      <span class="marquee-item">Free Returns <span class="marquee-dot">*</span></span>
+    </div>
+  </div>
+
+  <section id="categories">
+    <p class="section-label">Shop by Category</p>
+    <h2 class="section-title">Find Your Style</h2>
+    <div class="categories-grid" id="categoriesGrid"></div>
+  </section>
+
+  <section id="products">
+    <div class="products-header">
+      <div>
+        <p class="section-label">Just Dropped</p>
+        <h2 class="section-title">New Arrivals</h2>
+      </div>
+      <a href="#cart" class="btn-outline">View Cart</a>
+    </div>
+    <div class="products-grid" id="productsGrid"></div>
+  </section>
+
+  <section id="cart" class="panel-band">
+    <div class="split">
+      <div>
+        <p class="section-label">Your Cart</p>
+        <h2 class="section-title">Ready to Checkout</h2>
+        <div id="cartItems" class="list-panel"></div>
+      </div>
+      <form id="checkoutForm" class="form-panel">
+        <h3>Delivery Details</h3>
+        <input name="name" placeholder="Full name" required />
+        <input name="phone" placeholder="Phone number" required />
+        <input name="address" placeholder="Delivery address" required />
+        <select name="paymentMethod" required>
+          <option value="bkash">bKash</option>
+          <option value="nagad">Nagad</option>
+          <option value="upay">Upay</option>
+          <option value="cod">Cash on Delivery</option>
+        </select>
+        <button class="btn-primary" type="submit">Place Order</button>
+        <p class="muted" id="checkoutMessage"></p>
+      </form>
+    </div>
+  </section>
+
+  <section id="orders">
+    <p class="section-label">Order Tracking</p>
+    <h2 class="section-title">My Orders</h2>
+    <div id="ordersList" class="orders-grid"></div>
+  </section>
+
+  <section id="why">
+    <p class="section-label">Why Choose Us</p>
+    <h2 class="section-title">Fashion with Purpose</h2>
+    <div class="why-grid">
+      <div class="why-card"><span class="why-num">01</span><h3>Quality Fabrics</h3><p>Breathable, durable materials that look great and last longer.</p></div>
+      <div class="why-card"><span class="why-num">02</span><h3>Affordable Prices</h3><p>Premium style without a premium price tag.</p></div>
+      <div class="why-card"><span class="why-num">03</span><h3>Fast Local Delivery</h3><p>Quick dispatch and clear order tracking.</p></div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-top">
+      <div>
+        <span class="footer-logo">i<span>ZZ</span></span>
+        <p class="footer-desc">Premium menswear for everyday life, delivered across Bangladesh.</p>
+      </div>
+      <div class="footer-col"><h4>Shop</h4><ul id="footerCategories"></ul></div>
+      <div class="footer-col"><h4>Help</h4><ul><li><a href="#orders">Track My Order</a></li><li><a href="#cart">Checkout</a></li></ul></div>
+      <div class="footer-col"><h4>Follow Us</h4><ul id="footerSocials"></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>Copyright 2026 iZZ Fashion. All rights reserved.</span>
+      <div class="social-links" id="socialLinks"></div>
+    </div>
+  </footer>
+
+  <dialog id="authDialog">
+    <form id="authForm" class="dialog-form">
+      <button type="button" class="close-btn" id="closeAuth">x</button>
+      <h3>Account</h3>
+      <input name="name" placeholder="Name for signup" />
+      <input name="email" type="email" placeholder="Email" required />
+      <input name="phone" placeholder="Phone" />
+      <input name="password" type="password" placeholder="Password" required />
+      <div class="button-row">
+        <button class="btn-primary" name="mode" value="login">Login</button>
+        <button class="btn-outline" name="mode" value="register">Sign Up</button>
+      </div>
+      <p class="muted" id="authMessage"></p>
+    </form>
+  </dialog>
+
+  <script src="/app.js"></script>
+</body>
+</html>
